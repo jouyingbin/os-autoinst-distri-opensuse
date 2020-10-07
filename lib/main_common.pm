@@ -2273,16 +2273,16 @@ sub load_security_tests_crypt_tool {
 }
 
 sub load_security_tests_crypt_krb5kdc {
-    set_var('SECTEST_DVD_SRC', 1);
-    load_security_console_prepare;
+	# set_var('SECTEST_DVD_SRC', 1);
+	#load_security_console_prepare;
 
     loadtest "security/krb5/krb5_crypt_prepare";
     loadtest "security/krb5/krb5_crypt_setup_kdc";
 }
 
 sub load_security_tests_crypt_krb5server {
-    set_var('SECTEST_DVD_SRC', 1);
-    load_security_console_prepare;
+	#set_var('SECTEST_DVD_SRC', 1);
+	#load_security_console_prepare;
 
     loadtest "security/krb5/krb5_crypt_prepare";
     loadtest "security/krb5/krb5_crypt_setup_server";
@@ -2291,8 +2291,8 @@ sub load_security_tests_crypt_krb5server {
 }
 
 sub load_security_tests_crypt_krb5client {
-    set_var('SECTEST_DVD_SRC', 1);
-    load_security_console_prepare;
+	#set_var('SECTEST_DVD_SRC', 1);
+	#load_security_console_prepare;
 
     loadtest "security/krb5/krb5_crypt_prepare";
     loadtest "security/krb5/krb5_crypt_setup_client";
