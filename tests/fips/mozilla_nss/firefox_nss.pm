@@ -32,6 +32,18 @@ sub run {
     my ($self) = @_;
     select_console 'root-console';
 
+    #    my $firefox_crash_dir = "/home/bernhard/.mozilla/firefox/Crash\ Reports";
+    #    my $crash_report       = "/home/bernhard/.mozilla/firefox/Crash\ Reports/crashreporter.ini";
+
+    my $crash_report       = "\"/home/bernhard/.mozilla/firefox/Crash\ Reports/crashreporter.ini\"";
+
+    assert_script_run("sed -i -e 's/EmailMe=0/EmailMe=1/g' $crash_report");
+    assert_script_run("sed -i -e 's/SubmitReport=0/SubmitReport=1/g' $crash_report");
+
+    assert_script_run "cat $crash_report";
+    assert_script_run "cat $crash_report | grep 'EmailMe=1'";
+    assert_script_run "cat $crash_report | grep 'SubmitReport=1'";
+
     # Define FIPS password for firefox, and it should be consisted by:
     # - at least 8 characters
     # - at least one upper case
